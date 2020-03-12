@@ -1,9 +1,14 @@
 pipeline {
-    agent none
+    agent {
+        docker {
+            image 'node:12-alpine'
+            args '-p 3000:3000'
+        }
+    }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'yarn -v'
+                sh 'npm install'
             }
         }
     }
