@@ -6,9 +6,14 @@ pipeline {
         }
     }
     stages {
+        stage('Start') {
+            steps {
+                sh 'yarn -v'
+            }
+        }
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'yarn'
             }
         }
     }
